@@ -8,9 +8,9 @@ export interface SystemError {
 }
 
 export function handleError(res: Response, error: any): SystemError {
-
   const mapped_errors = [400, 401, 402, 403, 404];
   let status = 500;
+
   if (mapped_errors.includes(error.code)) {
     status = +error.code
   }
@@ -32,5 +32,4 @@ export function handleError(res: Response, error: any): SystemError {
 
   console.error(JSON.stringify(_error));
   return _error
-
 }
